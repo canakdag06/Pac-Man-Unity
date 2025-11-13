@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Wall
-  - 
+  - Pellet
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Wall
     uniqueID: 1010396479
+    locked: 0
+  - name: Pellet
+    uniqueID: 3716782683
     locked: 0
   m_RenderingLayers:
   - Default
