@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4395771265799158111}
   - component: {fileID: 72212056702785350}
   - component: {fileID: 1852947522737057673}
+  - component: {fileID: 2815121240847700127}
   m_Layer: 9
   m_Name: Pac-Man
   m_TagString: Untagged
@@ -74,7 +75,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &4395771265799158111
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -185,3 +186,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5820cb7cad1779c42ac3e83a018e2d9f, type: 3}
   FPS: 8
   loop: 1
+--- !u!114 &2815121240847700127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4779757241197822723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3e7905754b29f448c26c58eddcd77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  initialDirection: {x: 1, y: 0}
+  speed: 8
+  speedMultiplier: 1
