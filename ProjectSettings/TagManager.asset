@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Wall
   - Pellet
-  - 
+  - Node
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Pellet
     uniqueID: 3716782683
+    locked: 0
+  - name: Node
+    uniqueID: 2337321211
     locked: 0
   m_RenderingLayers:
   - Default
