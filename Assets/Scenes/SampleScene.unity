@@ -9798,6 +9798,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1852947522737057673, guid: 95f87206433db574a9238e130bc3b773, type: 3}
+      propertyPath: FPS
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4779757241197822723, guid: 95f87206433db574a9238e130bc3b773, type: 3}
       propertyPath: m_Name
       value: Pac-Man

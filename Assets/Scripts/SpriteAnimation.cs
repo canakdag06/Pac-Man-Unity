@@ -5,7 +5,7 @@ public class SpriteAnimation : MonoBehaviour
 {
     public SpriteRenderer Renderer { get; private set; }
     public Sprite[] sprites;
-    public int FPS = 4;
+    public int FPS;
     public int Frame { get; private set; }
     public bool loop = true;
 
@@ -34,5 +34,12 @@ public class SpriteAnimation : MonoBehaviour
         }
 
         Renderer.sprite = sprites[Frame];
+    }
+
+    public void Restart()
+    {
+        Frame = -1;
+
+        PlayAnimation();
     }
 }

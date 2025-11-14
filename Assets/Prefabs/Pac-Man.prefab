@@ -183,5 +183,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 59e46675b2627e54bbea327bf45c8b9a, type: 3}
   - {fileID: 21300000, guid: f1232a1a8cf150a44a43af7d1e5f46ad, type: 3}
   - {fileID: 21300000, guid: 5820cb7cad1779c42ac3e83a018e2d9f, type: 3}
-  FPS: 4
+  FPS: 8
   loop: 1
