@@ -14,7 +14,7 @@ TagManager:
   - Wall
   - Pellet
   - Node
-  - 
+  - Pacman
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Node
     uniqueID: 2337321211
+    locked: 0
+  - name: Pacman
+    uniqueID: 855324997
     locked: 0
   m_RenderingLayers:
   - Default
