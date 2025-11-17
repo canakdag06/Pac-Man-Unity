@@ -3,6 +3,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private Rigidbody2D rb;
+    [SerializeField] private InputReader inputReader;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private Vector2 initialDirection;
     private Vector2 nextDirection;
@@ -16,6 +17,16 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         startingPos = transform.position;
+    }
+
+    private void OnEnable()
+    {
+        inputReader.MoveEvent += HandleMovement;
+    }
+
+    private void OnDisable()
+    {
+        inputReader.MoveEvent -= HandleMovement;
     }
 
     void Start()
@@ -47,6 +58,11 @@ public class Movement : MonoBehaviour
         Vector2 translation = direction * speed * speedMultiplier * Time.fixedDeltaTime;
 
         rb.MovePosition(position + translation);
+    }
+
+    private void HandleMovement(Vector2 direction)
+    {
+
     }
 
     public void SetDirection(Vector2 dir, bool forced = false)
