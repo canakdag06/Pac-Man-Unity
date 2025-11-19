@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
     public Pacman pacman;
     public Ghost[] ghosts;
     public Transform pellets;
+    private int pelletCount;
 
     public int Lives { get; private set; }
     public int Score { get; private set; }
@@ -12,6 +14,16 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         NewGame();
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.OnPelletEaten += HandlePelletEaten;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnPelletEaten -= HandlePelletEaten;
     }
 
     private void NewGame()
@@ -33,8 +45,10 @@ public class GameManager : MonoBehaviour
 
     private void NewRound()
     {
+        pelletCount = 0;
         foreach (Transform pellet in pellets)
         {
+            pelletCount++;
             pellet.gameObject.SetActive(true);
         }
 
@@ -82,4 +96,22 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    private void HandlePelletEaten(Pellet pellet)
+    {
+        pelletCount--;
+        SetScore(Score + pellet.Points);
+        if(pelletCount == 0)
+        {
+            pacman.gameObject.SetActive(false);
+            Invoke(nameof(NewRound), 3f);
+        }
+
+        // if the pellet is a PowerPellet
+        if (pellet is PowerPellet powerPellet)
+        {
+            // todo
+        }
+    }
+
 }
