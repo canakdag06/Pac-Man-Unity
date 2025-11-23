@@ -23,11 +23,15 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnPelletEaten += HandlePelletEaten;
+        GameEvents.OnGhostEaten += GhostEaten;
+        GameEvents.OnPacmanEaten += PacmanEaten;
     }
 
     private void OnDisable()
     {
         GameEvents.OnPelletEaten -= HandlePelletEaten;
+        GameEvents.OnGhostEaten -= GhostEaten;
+        GameEvents.OnPacmanEaten -= PacmanEaten;
     }
 
     private void NewGame()
