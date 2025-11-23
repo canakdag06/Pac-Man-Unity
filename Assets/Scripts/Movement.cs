@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        Reset();
+        ResetState();
     }
 
     void Update()
@@ -48,7 +48,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void Reset()
+    public void ResetState()
     {
         speedMultiplier = 1.0f;
         direction = initialDirection;
