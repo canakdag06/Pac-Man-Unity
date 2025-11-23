@@ -63,10 +63,10 @@ public class GameManager : MonoBehaviour
     {
         foreach (Ghost ghost in ghosts)
         {
-            ghost.gameObject.SetActive(true);
+            ghost.ResetState();
         }
 
-        pacman.gameObject.SetActive(true);
+        pacman.ResetState();
     }
 
     private void GameOver()
