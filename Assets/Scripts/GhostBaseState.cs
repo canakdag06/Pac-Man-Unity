@@ -1,16 +1,35 @@
+using System.Collections;
 using UnityEngine;
 
 public class GhostBaseState : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Ghost Ghost { get; private set; }
+
+    [SerializeField] private float duration;
+
+    private void Awake()
     {
-        
+        Ghost = GetComponent<Ghost>();
+        this.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Enable()
     {
-        
+        Enable(duration);
+    }
+
+    public virtual void Enable(float duration)
+    {
+        this.enabled = true;
+
+        CancelInvoke();
+        Invoke(nameof(Disable), duration);
+    }
+
+    public virtual void Disable()
+    {
+        this.enabled = false;
+
+        CancelInvoke();
     }
 }
