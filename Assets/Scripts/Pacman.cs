@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class Pacman : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private SpriteAnimation deathSequence;
+    private SpriteRenderer spriteRenderer;
+    private CircleCollider2D circleCollider;
+    private Movement movement;
+
+    private void Awake()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        circleCollider = GetComponent<CircleCollider2D>();
+        movement = GetComponent<Movement>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetState()
     {
-        
+        gameObject.SetActive(true);
+        movement.ResetState();
     }
 }
