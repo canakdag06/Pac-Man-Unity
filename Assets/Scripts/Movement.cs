@@ -3,8 +3,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public Vector2 Direction { get; private set; }
+    public Rigidbody2D rb;
 
-    private Rigidbody2D rb;
     [SerializeField] private InputReader inputReader;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private Vector2 initialDirection;
