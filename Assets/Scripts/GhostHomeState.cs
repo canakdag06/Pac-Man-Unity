@@ -26,9 +26,9 @@ public class GhostHomeState : GhostBaseState
         float duration = 0.5f;
         float elapsed = 0.0f;
 
-        while(elapsed < duration)
+        while (elapsed < duration)
         {
-            Vector3 newPosition = Vector2.Lerp(position, inside.position, elapsed/duration);
+            Vector3 newPosition = Vector2.Lerp(position, inside.position, elapsed / duration);
             elapsed += Time.deltaTime;
             Ghost.transform.position = newPosition;
             elapsed += Time.deltaTime;
@@ -47,5 +47,13 @@ public class GhostHomeState : GhostBaseState
         Ghost.Movement.SetDirection(new Vector2(Random.value < 0.5f ? -1.0f : 1.0f, 0.0f), true);
         Ghost.Movement.rb.bodyType = RigidbodyType2D.Dynamic;
         Ghost.Movement.enabled = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (enabled && collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            Ghost.Movement.SetDirection(-Ghost.Movement.Direction);
+        }
     }
 }
