@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class GhostScatterState : GhostBaseState
 {
-
     private void OnDisable()
     {
         Ghost.ChaseState.Enable();
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
