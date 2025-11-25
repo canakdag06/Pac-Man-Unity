@@ -13,7 +13,10 @@ public class GhostHomeState : GhostBaseState
 
     private void OnDisable()
     {
-        StartCoroutine(ExitHomeAnimation());
+        if (gameObject.activeSelf)
+        {
+            StartCoroutine(ExitHomeAnimation());
+        }
     }
 
     private IEnumerator ExitHomeAnimation()
