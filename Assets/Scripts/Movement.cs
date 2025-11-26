@@ -4,6 +4,7 @@ public class Movement : MonoBehaviour
 {
     public Vector2 Direction { get; private set; }
     public Rigidbody2D rb;
+    public float speedMultiplier = 1.0f;
 
     [SerializeField] private InputReader inputReader;
     [SerializeField] private LayerMask wallLayer;
@@ -12,7 +13,6 @@ public class Movement : MonoBehaviour
     private Vector3 startingPos;
 
     [SerializeField] private float speed;
-    [SerializeField] private float speedMultiplier = 1.0f;
 
     [SerializeField] private bool isSpriteRotating;
 
