@@ -14,6 +14,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float speedMultiplier = 1.0f;
 
+    [SerializeField] private bool isSpriteRotating;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -58,6 +60,7 @@ public class Movement : MonoBehaviour
         transform.position = startingPos;
         rb.bodyType = RigidbodyType2D.Dynamic;
         this.enabled = true;
+        RotateSprite();
     }
 
     private void FixedUpdate()
@@ -101,8 +104,10 @@ public class Movement : MonoBehaviour
             Direction = dir;
             nextDirection = Vector2.zero;
 
-            float angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            if (isSpriteRotating)
+            {
+                RotateSprite();
+            }
         }
         else
         {
@@ -114,5 +119,11 @@ public class Movement : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.75f, 0f, dir, 1.5f, wallLayer);
         return hit.collider == null;
+    }
+
+    private void RotateSprite()
+    {
+        float angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }
