@@ -78,4 +78,27 @@ public class GhostFrightenedState : GhostBaseState
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Node node = collision.GetComponent<Node>();
+        if (enabled && node != null)
+        {
+            Vector2 direction = Vector2.zero;
+            float maxDistance = float.MinValue;
+
+            foreach (Vector2 dir in node.AvailableDirections)
+            {
+                Vector3 newPosition = transform.position + new Vector3(dir.x, dir.y, 0.0f);
+                float distance = (Ghost.target.position - newPosition).sqrMagnitude;
+
+                if (distance < maxDistance)
+                {
+                    direction = dir;
+                    maxDistance = distance;
+                }
+            }
+            Ghost.Movement.SetDirection(direction);
+        }
+    }
 }
