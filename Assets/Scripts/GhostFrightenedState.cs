@@ -92,7 +92,7 @@ public class GhostFrightenedState : GhostBaseState
                 Vector3 newPosition = transform.position + new Vector3(dir.x, dir.y, 0.0f);
                 float distance = (Ghost.target.position - newPosition).sqrMagnitude;
 
-                if (distance < maxDistance)
+                if (distance > maxDistance)
                 {
                     direction = dir;
                     maxDistance = distance;
