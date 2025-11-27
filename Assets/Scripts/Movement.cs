@@ -60,7 +60,11 @@ public class Movement : MonoBehaviour
         transform.position = startingPos;
         rb.bodyType = RigidbodyType2D.Dynamic;
         this.enabled = true;
-        RotateSprite();
+
+        if (isSpriteRotating)
+        {
+            RotateSprite();
+        }
     }
 
     private void FixedUpdate()
