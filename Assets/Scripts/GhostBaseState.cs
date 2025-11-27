@@ -5,7 +5,7 @@ public abstract class GhostBaseState : MonoBehaviour
 {
     public Ghost Ghost { get; private set; }
 
-    [SerializeField] private float duration;
+    public float duration;
 
     private void Awake()
     {

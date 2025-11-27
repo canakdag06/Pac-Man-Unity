@@ -223,13 +223,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3e7905754b29f448c26c58eddcd77f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  speedMultiplier: 1
   inputReader: {fileID: 0}
   wallLayer:
     serializedVersion: 2
     m_Bits: 0
   initialDirection: {x: 0, y: 0}
   speed: 8
-  speedMultiplier: 1
+  isSpriteRotating: 0
 --- !u!114 &3490700269130270716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0
+  inside: {fileID: 0}
+  outside: {fileID: 0}
 --- !u!114 &7441263132289426026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,6 +301,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 8
+  body: {fileID: 6733651676155865886}
+  eyes: {fileID: 4323310647499390929}
+  frightened: {fileID: 5099766530052654181}
+  frightenedExpiring: {fileID: 4922392202598245569}
 --- !u!1 &2339789629737879731
 GameObject:
   m_ObjectHideFlags: 0

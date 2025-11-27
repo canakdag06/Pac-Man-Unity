@@ -124,6 +124,11 @@ public class GameManager : MonoBehaviour
                 StopCoroutine(powerupCoroutine);
             }
             powerupCoroutine = StartCoroutine(PowerupTimer(((PowerPellet)pellet).PowerupDuration));
+
+            for (int i = 0; i < ghosts.Length; i++)
+            {
+                ghosts[i].FrightenedState.Enable(((PowerPellet)pellet).PowerupDuration);
+            }
         }
     }
 
