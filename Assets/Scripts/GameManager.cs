@@ -128,6 +128,7 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < ghosts.Length; i++)
             {
                 ghosts[i].ChaseState.Disable();
+                ghosts[i].ScatterState.Disable();
                 ghosts[i].FrightenedState.Enable(((PowerPellet)pellet).PowerupDuration);
 
             }
