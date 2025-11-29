@@ -17,7 +17,11 @@ public abstract class GhostChaseState : GhostBaseState
         base.Disable();
 
         targetRenderer.enabled = false;
-        Ghost.ScatterState.Enable();
+
+        if(!Ghost.FrightenedState.enabled)
+        {
+            Ghost.ScatterState.Enable();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
