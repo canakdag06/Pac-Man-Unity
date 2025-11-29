@@ -10,7 +10,7 @@ public class GhostScatterState : GhostBaseState
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Node node = collision.GetComponent<Node>();
-        if (enabled && !Ghost.FrightenedState.enabled && node != null)
+        if (enabled && node != null)
         {
             int index = Random.Range(0, node.AvailableDirections.Count);
 
@@ -31,6 +31,12 @@ public class GhostScatterState : GhostBaseState
     public override void Disable()
     {
         base.Disable();
+
+        if(Ghost.FrightenedState.enabled)
+        {
+            return;
+        }
+
         Ghost.ChaseState.Enable();
     }
 }
