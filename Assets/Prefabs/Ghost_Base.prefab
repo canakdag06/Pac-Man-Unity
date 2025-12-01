@@ -229,7 +229,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   initialDirection: {x: 0, y: 0}
-  speed: 8
+  speed: 7.5
   isSpriteRotating: 0
 --- !u!114 &3490700269130270716
 MonoBehaviour:
@@ -274,6 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 7
+  corner: {fileID: 0}
 --- !u!114 &203112816659355530
 MonoBehaviour:
   m_ObjectHideFlags: 0
