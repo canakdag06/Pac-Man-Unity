@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
     private void SetScore(int score)
     {
         Score = score;
+        GameEvents.ScoreChanged(score);
     }
 
     private void NewRound()

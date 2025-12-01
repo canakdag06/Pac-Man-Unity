@@ -1,16 +1,22 @@
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private TextMeshProUGUI scoreText;
+
+    private void OnEnable()
     {
-        
+        GameEvents.OnScoreChanged += UpdateScoreText;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        GameEvents.OnScoreChanged -= UpdateScoreText;
+    }
+
+    private void UpdateScoreText(int newScore)
+    {
+        scoreText.text = newScore.ToString();
     }
 }
