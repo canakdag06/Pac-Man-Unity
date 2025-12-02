@@ -21,8 +21,25 @@ public class SpriteAnimation : MonoBehaviour
         InvokeRepeating(nameof(PlayAnimation), time, time);
     }
 
+    public void StartAnimation()
+    {
+        if (IsInvoking(nameof(PlayAnimation)))
+        {
+            CancelInvoke(nameof(PlayAnimation));
+        }
 
-    private void PlayAnimation()
+        Frame = 0;
+        float time = 1f / FPS;
+
+        InvokeRepeating(nameof(PlayAnimation), 0f, time);
+    }
+
+    public void StopAnimation()
+    {
+        CancelInvoke(nameof(PlayAnimation));
+    }
+
+    public void PlayAnimation()
     {
         if (!Renderer.enabled) return;
 
@@ -30,16 +47,24 @@ public class SpriteAnimation : MonoBehaviour
 
         if (Frame >= sprites.Length && loop)
         {
-            Frame = 0;
+            if (loop)
+            {
+                Frame = 0;
+            }
+            else
+            {
+                StopAnimation();
+            }
         }
 
-        Renderer.sprite = sprites[Frame];
+        if (Frame < sprites.Length)
+        {
+            Renderer.sprite = sprites[Frame];
+        }
     }
 
     public void Restart()
     {
-        Frame = -1;
-
-        PlayAnimation();
+        StartAnimation();
     }
 }

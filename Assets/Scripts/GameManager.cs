@@ -117,8 +117,6 @@ public class GameManager : MonoBehaviour
 
     public void PacmanEaten()
     {
-        pacman.gameObject.SetActive(false);
-
         SetLives(Lives - 1);
 
         if (Lives > 0)
@@ -163,9 +161,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PowerupTimer(float duration)
     {
-        //TODO Enable Frightened Ghosts
         yield return new WaitForSeconds(duration);
-        //TODO Disable Frightened Ghosts
         ResetMultiplier();
         powerupCoroutine = null;
     }
