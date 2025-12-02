@@ -1,9 +1,11 @@
 using System;
+using UnityEngine;
 
 public static class GameEvents
 {
     public static event Action<Pellet> OnPelletEaten;
     public static event Action<Ghost> OnGhostEaten;
+    public static event Action<int, Vector3> OnGhostScored;
     public static event Action OnPacmanEaten;
     public static event Action<int> OnScoreChanged;
     public static event Action<int> OnLivesChanged;
@@ -17,6 +19,11 @@ public static class GameEvents
     public static void GhostEaten(Ghost ghost)
     {
         OnGhostEaten?.Invoke(ghost);
+    }
+
+    public static void TriggerGhostScore(int points, Vector3 position)
+    {
+        OnGhostScored?.Invoke(points, position);
     }
 
     public static void PacmanEaten()

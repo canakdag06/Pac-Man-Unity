@@ -111,8 +111,10 @@ public class GameManager : MonoBehaviour
 
     public void GhostEaten(Ghost ghost)
     {
+        int points = ghost.points * ghostScoreMultiplier;
+        SetScore(Score + points);
+        GameEvents.TriggerGhostScore(points, ghost.transform.position);
         ghostScoreMultiplier++;
-        SetScore(Score + ghost.points * ghostScoreMultiplier);
     }
 
     public void PacmanEaten()
