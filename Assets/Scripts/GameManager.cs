@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public Transform pellets;
     private int pelletCount;
 
+    [Header("UI References")]
+    public GameObject readyText;
+    private const float readyDelay = 3f;
+
     private Coroutine powerupCoroutine;
     private int ghostScoreMultiplier = 1;
     private const int extraLifeScore = 10000;
@@ -32,7 +36,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        NewGame();
+        SetLives(initialLives);
+        SetScore(0);
+        StartCoroutine(ReadyToPlay());
     }
 
     private void OnEnable()
@@ -49,10 +55,12 @@ public class GameManager : MonoBehaviour
         GameEvents.OnPacmanEaten -= PacmanEaten;
     }
 
-    private void NewGame()
+    private IEnumerator ReadyToPlay()
     {
-        SetLives(initialLives);
-        SetScore(0);
+        readyText.SetActive(true);
+        yield return new WaitForSeconds(readyDelay);
+        readyText.SetActive(false);
+
         NewRound();
     }
 
@@ -123,7 +131,7 @@ public class GameManager : MonoBehaviour
 
         if (Lives > 0)
         {
-            Invoke(nameof(ResetState), 3f);
+            StartCoroutine(ReadyToPlay());
         }
         else
         {
