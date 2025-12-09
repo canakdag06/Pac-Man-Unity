@@ -38,3 +38,16 @@ https://YOUR_RELEASES_LINK
 <img width="800" height="600" alt="1" src="https://github.com/user-attachments/assets/52adbd2e-9cd5-4f09-81b8-bf7a7925457d" />
 
 <img width="800" height="600" alt="1" src="https://github.com/user-attachments/assets/58bb702f-d67c-4890-8f0f-e03b7fb89561" />
+
+## 🕹️ Controls (Default)
+
+| Action | Default Key |
+|--------|--------------|
+| Move | WASD / Arrow Keys |
+| Esc | Pause |
+
+---
+
+## 📚 Credits
+- "Arcade Alternate" font by [Abdul Muizz bin Haji Kasim](https://www.dafont.com/arcade-alternate.font)
+- The initial structure, visual assets and basic implementation of the core movement system were adapted from a tutorial series by [Zigurous](https://www.youtube.com/watch?v=TKt_VlMn_aA&t=2588s).
