@@ -7,7 +7,7 @@ public class GhostFrightenedState : GhostBaseState
     public SpriteRenderer frightened;
     public SpriteRenderer frightenedExpiring;
 
-    public bool eaten { get; private set; }
+    public bool Eaten { get; private set; }
 
     public override void Enable(float duration)
     {
@@ -38,7 +38,7 @@ public class GhostFrightenedState : GhostBaseState
 
     private void Flash()
     {
-        if(!eaten)
+        if (!Eaten)
         {
             frightened.enabled = false;
             frightenedExpiring.enabled = true;
@@ -48,7 +48,7 @@ public class GhostFrightenedState : GhostBaseState
 
     private void GetEaten()
     {
-        eaten = true;
+        Eaten = true;
 
         Vector3 position = this.Ghost.HomeState.inside.position;
         position.z = this.Ghost.transform.position.z;
@@ -59,26 +59,25 @@ public class GhostFrightenedState : GhostBaseState
         eyes.enabled = true;
         frightened.enabled = false;
         frightenedExpiring.enabled = false;
-
     }
 
     private void OnEnable()
     {
         this.Ghost.Movement.speedMultiplier = 0.5f;
-        eaten = false;
+        Eaten = false;
     }
 
     private void OnDisable()
     {
         this.Ghost.Movement.speedMultiplier = 1.0f;
-        eaten = false;
+        Eaten = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Pacman"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Pacman"))
         {
-            if(this.enabled)
+            if (this.enabled)
             {
                 GetEaten();
             }

@@ -41,14 +41,4 @@ public class MainMenuManager : MonoBehaviour
     {
         Application.Quit();
     }
-
-    public void OpenSettings()
-    {
-
-    }
-
-    public void CloseSettings()
-    {
-
-    }
 }
