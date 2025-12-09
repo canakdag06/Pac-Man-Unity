@@ -4,18 +4,31 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private InputReader inputReader;
+
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject[] lives;
     [SerializeField] private FloatingScore scorePopup;
 
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject wellDonePanel;
+    [SerializeField] private GameObject pausePanel;
     [SerializeField] private TextMeshProUGUI finalScore;
+
+    public bool IsPaused { get; private set; }
+
+
+    private void Awake()
+    {
+        Time.timeScale = 1.0f;
+        IsPaused = false;
+    }
 
     private void Start()
     {
         gameOverPanel.SetActive(false);
         wellDonePanel.SetActive(false);
+        pausePanel.SetActive(false);
     }
 
     private void OnEnable()
@@ -25,6 +38,9 @@ public class UIManager : MonoBehaviour
         GameEvents.OnGhostScored += SpawnFloatingText;
         GameEvents.OnGameOver += ShowGameOverPanel;
         GameEvents.OnLevelCompleted += ShowWellDonePanel;
+        inputReader.PauseEvent += TogglePause;
+        inputReader.ResumeEvent += TogglePause;
+
     }
 
     private void OnDisable()
@@ -34,6 +50,8 @@ public class UIManager : MonoBehaviour
         GameEvents.OnGhostScored -= SpawnFloatingText;
         GameEvents.OnGameOver -= ShowGameOverPanel;
         GameEvents.OnLevelCompleted -= ShowWellDonePanel;
+        inputReader.PauseEvent -= TogglePause;
+        inputReader.ResumeEvent -= TogglePause;
     }
 
     private void UpdateScoreText(int newScore)
@@ -74,6 +92,53 @@ public class UIManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
     }
+
+    private void TogglePause()
+    {
+        if(IsPaused)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            PauseGame();
+        }
+    }
+
+    private void PauseGame()
+    {
+        if (IsPaused) return;
+
+        Time.timeScale = 0f;
+        IsPaused = true;
+
+        if(pausePanel != null)
+        {
+            pausePanel.SetActive(true);
+        }
+    }
+
+    public void ResumeGame()
+    {
+        if (!IsPaused) return;
+
+        Time.timeScale = 1f;
+        IsPaused = false;
+
+        if(pausePanel != null)
+        {
+            pausePanel.SetActive(false);
+        }
+    }
+
+    public void OnClick_Resume()
+    {
+        ResumeGame();
+
+        inputReader.SetGameplay();
+    }
+
 }
