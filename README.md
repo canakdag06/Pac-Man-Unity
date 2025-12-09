@@ -43,7 +43,7 @@ You can download the latest build from the [**Releases** section](https://github
 | Action | Default Key |
 |--------|--------------|
 | Move | WASD / Arrow Keys |
-| Esc | Pause |
+| Pause | Escape |
 
 ---
 
