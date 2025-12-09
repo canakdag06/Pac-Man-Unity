@@ -31,6 +31,10 @@ https://YOUR_RELEASES_LINK
 - Clean and modular C# architecture
 ---
 ## 📷 Screenshots
+<img width="800" height="600" alt="1" src="https://github.com/user-attachments/assets/aa93dcdc-9e29-410a-a50e-7f4c645f7233" />
 
-_Add your screenshots below:_
+<img width="800" height="600" alt="1" src="https://github.com/user-attachments/assets/567666d7-410f-4eac-8474-f8d00d3e52b2" />
 
+<img width="800" height="600" alt="1" src="https://github.com/user-attachments/assets/52adbd2e-9cd5-4f09-81b8-bf7a7925457d" />
+
+<img width="800" height="600" alt="1" src="https://github.com/user-attachments/assets/58bb702f-d67c-4890-8f0f-e03b7fb89561" />
