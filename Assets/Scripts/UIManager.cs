@@ -41,6 +41,10 @@ public class UIManager : MonoBehaviour
         inputReader.PauseEvent += TogglePause;
         inputReader.ResumeEvent += TogglePause;
 
+        if (inputReader != null)
+        {
+            inputReader.SetGameplay();
+        }
     }
 
     private void OnDisable()
@@ -98,7 +102,7 @@ public class UIManager : MonoBehaviour
 
     private void TogglePause()
     {
-        if(IsPaused)
+        if (IsPaused)
         {
             ResumeGame();
         }
@@ -115,7 +119,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0f;
         IsPaused = true;
 
-        if(pausePanel != null)
+        if (pausePanel != null)
         {
             pausePanel.SetActive(true);
         }
@@ -128,7 +132,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
         IsPaused = false;
 
-        if(pausePanel != null)
+        if (pausePanel != null)
         {
             pausePanel.SetActive(false);
         }
