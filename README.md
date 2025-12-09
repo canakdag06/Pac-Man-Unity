@@ -16,8 +16,7 @@ You can watch the gameplay video [here](https://youtu.be/4DSdz3JPjm8).
 
 ## 🚀 Download
 
-You can download the latest build from the **Releases** section:  
-https://YOUR_RELEASES_LINK
+You can download the latest build from the [**Releases** section](https://github.com/canakdag06/Pac-Man-Unity/releases/tag/v1.0).
 
 ---
 
